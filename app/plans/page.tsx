@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Plans = () => {
-  return (
-    <div>
-      Plans goes here
-    </div>
-  )
-}
+  return <div>Plans goes here</div>;
+};
 
-export default Plans
+export default Plans;

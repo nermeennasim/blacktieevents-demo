@@ -1,0 +1,8 @@
+{
+  "semi": true,             // Add semicolons at the end of statements
+  "singleQuote": true,      // Use single quotes instead of double quotes
+  "trailingComma": "all",   // Add trailing commas wherever possible
+  "tabWidth": 2,            // Set the number of spaces per indentation level
+  "printWidth": 80,         // Line length before wrapping
+  "useTabs": false          // Use spaces for indentation, not tabs
+}

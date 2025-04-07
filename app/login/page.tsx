@@ -1,9 +1,8 @@
-import React from 'react'
-import '@/assets/styles/globals.css' // Ensure global styles are imported
+import React from "react";
+import "@/assets/styles/globals.css"; // Ensure global styles are imported
 const Login = () => {
   return (
     <div>
-      
       <h1>Login Page</h1>
       <p>Please enter your credentials to login.</p>
       <form>
@@ -18,7 +17,7 @@ const Login = () => {
         <button type="submit">Login</button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

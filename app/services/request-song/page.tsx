@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const RequestASong = () => {
   return (
@@ -6,7 +6,7 @@ const RequestASong = () => {
       Pay to Request a Song! <br />
       <br />
     </div>
-  )
-}
+  );
+};
 
-export default RequestASong
+export default RequestASong;
