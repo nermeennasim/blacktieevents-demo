@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+
+/* styles.css or global.css */
+.testimonial-fade {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.testimonial-enter {
+    opacity: 0;
+}
+
+.testimonial-enter-active {
+    opacity: 1;
+}

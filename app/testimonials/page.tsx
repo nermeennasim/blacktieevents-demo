@@ -1,7 +1,11 @@
 import React from "react";
 import "@/assets/styles/globals.css"; // Example of how to import CSS for this component, if needed
+import TestimonialCard from "@/components/TestimonialCard";
+import TestimonialsCarousel from "@/components/TestimonialCarousel";
 const Testimonials = () => {
-  return <div>Here is what others say about Black Tie Events!</div>;
-};
+  return   (<main className="min-h-screen bg-gray-100">
+      <TestimonialsCarousel />
+    </main>)
+}
 
 export default Testimonials;

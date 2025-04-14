@@ -2,6 +2,9 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import "@/assets/styles/globals.css";
 import Head from "next/head";
+import Footer from "@/components/Footer";
+import CosmosBackground from '@/components/CosmosBackground';
+
 
 export const metadata = {
   title: "Black Tie Events", // This is used for the <title> tag in the HTML head
@@ -30,13 +33,14 @@ export default function MainLayout({
           content="BlackTie Events - Your Event Planning Partner"
         />
       </Head>
-      <body className="bg-black text-white shadow-lg m-4 rounded-lg"> {/* Outer container for the page */}
+      <body className="bg-black text-white shadow-lg m-4 rounded-lg">
+        {' '}
         {/* Outer container for the page */}
-      
-          <Navbar />
-
-          {children}
-        
+        {/* Outer container for the page */}
+        <CosmosBackground />
+        <Navbar />
+        {children}
+        <Footer />
       </body>
     </html>
   );

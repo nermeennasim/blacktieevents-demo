@@ -4,16 +4,35 @@ import { useState } from "react";
 import Link from "next/link";
 import { FaBlackTie } from "react-icons/fa";
 import { MdLogin } from "react-icons/md";
+import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activePage, setActivePage] = useState("/"); // Track the active page
 
-  // Function to check if the link is the active page
-  const isActive = (path: string) =>
-    activePage === path ? "text-white" : "hover:text-purple-400";
+ const pathname = usePathname();
 
+  const isActive = (path: string) => pathname === path;
+
+  const linkClass = (path: string) =>
+    `px-4 py-2 rounded transition duration-300 ${
+      isActive(path)
+        ? "bg-gray-600 text-purple-400"
+        : "hover:bg-gray-600 hover:text-purple-400"
+    }`;
+
+const isDropdownActive = (pathPrefix: string) =>
+  pathname?.startsWith(pathPrefix);
+
+const dropdownLinkClass = (path: string) =>
+  `block px-4 py-2 transition duration-300 rounded ${
+    isActive(path)
+      ? "bg-gray-700 text-purple-400"
+      : "hover:bg-gray-700 hover:text-purple-400"
+  }`;
+ 
   return (
     <nav className="bg-gray-800 text-white px-6 py-4 rounded-t-lg shadow-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -21,11 +40,11 @@ export default function Navbar() {
         {/* Logo and Web Name in One Line */}
         <div className="flex items-center space-x-2">
           {/* Logo Icon */}
-          <FaBlackTie className="text-white text-xl" />{" "}
+          <FaBlackTie className="text-white text-xl" />{' '}
           {/* Using the FontAwesome BlackTie icon */}
           {/* Web Name */}
           <span className="text-2xl font-bold">
-            <Link href="/" onClick={() => setActivePage("/")}>
+            <Link href="/" onClick={() => setActivePage('/')}>
               Black Tie Events
             </Link>
           </span>
@@ -33,31 +52,19 @@ export default function Navbar() {
 
         {/* Menu (Desktop) */}
         <div className="hidden md:flex space-x-6 items-center">
-          <Link
-            href="/"
-            className="hover:text-white hover:bg-gray-600 px-4 py-2 rounded transition duration-300"
-          >
+          <Link href="/" className={linkClass('/')}>
             Home
           </Link>
 
-          <Link
-            href="/plans"
-            className="hover:text-white hover:bg-gray-600 px-4 py-2 rounded transition duration-300"
-          >
+          <Link href="/plans" className={linkClass('/plans')}>
             Plans
           </Link>
 
-          <Link
-            href="/testimonials"
-            className="hover:text-white hover:bg-gray-600 px-4 py-2 rounded transition duration-300"
-          >
+          <Link href="/testimonials" className={linkClass('/testimonials')}>
             Testimonials
           </Link>
 
-          <Link
-            href="/contact"
-            className="hover:text-white hover:bg-gray-600 px-4 py-2 rounded transition duration-300"
-          >
+          <Link href="/contact" className={linkClass('/contact')}>
             Contact Us
           </Link>
 
@@ -65,7 +72,7 @@ export default function Navbar() {
           <div className="relative">
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className="hover:text-purple-400 focus:outline-none px-4 py-2 rounded transition duration-300"
+              className={linkClass('/services')}
             >
               Services ▾
             </button>
@@ -73,25 +80,29 @@ export default function Navbar() {
               <div className="absolute bg-gray-800 text-white mt-2 rounded shadow-lg w-48 z-10">
                 <Link
                   href="/services/book-a-call"
-                  className="block px-4 py-2 hover:bg-gray-700 hover:text-white"
+                  onClick={() => setIsDropdownOpen(false)}
+                  className={dropdownLinkClass('/services/book-a-call')}
                 >
                   Book a Call
                 </Link>
                 <Link
                   href="/services/rent-equipment"
-                  className="block px-4 py-2 hover:bg-gray-700 hover:text-white"
+                  onClick={() => setIsDropdownOpen(false)}
+                  className={dropdownLinkClass('/services/rent-equipment')}
                 >
                   Rent Equipment
                 </Link>
                 <Link
                   href="/services/request-song"
-                  className="block px-4 py-2 hover:bg-gray-700 hover:text-white"
+                  onClick={() => setIsDropdownOpen(false)}
+                  className={dropdownLinkClass('/services/request-song')}
                 >
                   Request a Song
                 </Link>
                 <Link
                   href="/services/photobooth"
-                  className="block px-4 py-2 hover:bg-gray-700 hover:text-white"
+                  onClick={() => setIsDropdownOpen(false)}
+                  className={dropdownLinkClass('/services/photobooth')}
                 >
                   Photobooth
                 </Link>
@@ -124,9 +135,9 @@ export default function Navbar() {
               className="h-6 w-6"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M4 6h16M4 12h16M4 18h16"
               />
             </svg>
