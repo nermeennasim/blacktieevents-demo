@@ -10,19 +10,16 @@ interface Testimonial {
   image?: string;
 }
 
-// Example testimonials – update these to your actual content.
 const testimonials: Testimonial[] = [
   {
     text: 'This service was amazing! My event was unforgettable.',
     name: 'John Doe',
     position: 'CEO, Example Inc.',
-    // Uncomment next line if you have an image: image: "/assets/testimonial-1.jpg",
   },
   {
     text: 'The experience exceeded my expectations. Truly outstanding!',
     name: 'Jane Smith',
     position: 'Founder, Startup Co.',
-    // image: "/assets/testimonial-2.jpg",
   },
 ];
 
@@ -43,28 +40,23 @@ const TestimonialsCarousel: React.FC = () => {
 
   const prevTestimonial = () => {
     setCurrentIndex(
-      (prevIndex) =>
-        (prevIndex - 1 + testimonials.length) % testimonials.length,
+      (prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length,
     );
   };
 
   return (
-    <section className="relative h-96 flex items-center justify-center bg-center"
-      style={{ backgroundImage: 'url("/assets/dj-bg-1.jpg")' }}>
-      {/* Overlay */}
-      <div
-        className="absolute inset-0 bg-black"       
-
-        style={{ opacity: 0.5 }}
-      ></div>
-      <div className="relative z-10 p-4 text-center">
-        <h2 className="text-3xl font-bold text-white mb-6">
-          What Our Clients Say
-        </h2>
+    <section
+      className="max-w-xl mx-auto bg-black p-6 rounded shadow-md flex flex-col space-y-4"
+      // background comes from inline style "url('/assets/dj-bg-1.jpg')" if used
+      // If you don't want an image, remove the backgroundImage style.
+      // If you want bg none, you can use bg-transparent as well.
+      style={{ backgroundImage: 'none' }} // or remove this line entirely for just bg-black
+    >
+      <div className="relative z-10 p-4 mx-auto bg-black bg-opacity-50 rounded-lg shadow-lg">
+        <h2 className="text-3xl font-bold mb-6">What Our Clients Say</h2>
         <div className="mb-6">
           <TestimonialCard {...testimonials[currentIndex]} />
         </div>
-        {/* Navigation Buttons */}
         <div className="flex justify-center space-x-4">
           <button
             onClick={prevTestimonial}
@@ -82,6 +74,6 @@ const TestimonialsCarousel: React.FC = () => {
       </div>
     </section>
   );
-};
-
+}
 export default TestimonialsCarousel;
+

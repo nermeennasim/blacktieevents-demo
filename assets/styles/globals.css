@@ -13,3 +13,6 @@
 .testimonial-enter-active {
     opacity: 1;
 }
+main {
+    background-color: #000 !important;
+}

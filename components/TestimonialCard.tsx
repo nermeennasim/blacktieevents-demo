@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { FaHeart } from 'react-icons/fa';
 
 interface TestimonialCardProps {
   text: string;
@@ -16,19 +17,22 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   image,
 }) => {
   return (
-    <div className="bg-purple-700 text-white-200 p-6 rounded-lg shadow-md w-full md:w-1/3 mx-auto">
-      <p className="italic text-white-700 font-bold mb-4">&quot;{text}&quot;</p>
+    <div className="w-full max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
+      <p className="text-lg italic text-gray-800 mb-4">"{text}"</p>
       <div className="flex items-center">
-        {image && (
+        {image ? (
           <img
             src={image}
             alt={name}
             className="w-12 h-12 rounded-full object-cover mr-4"
           />
+        ) : (
+          // Fallback icon if no image is provided
+          <FaHeart className="w-12 h-12 text-red-500 mr-4" />
         )}
-        <div>
-          <p className="font-semibold text-gray-900">{name}</p>
-          <p className="text-sm text-white">{position}</p>
+        <div className="text-left">
+          <p className="text-xl font-bold text-gray-900">{name}</p>
+          <p className="text-sm text-gray-600">{position}</p>
         </div>
       </div>
     </div>
