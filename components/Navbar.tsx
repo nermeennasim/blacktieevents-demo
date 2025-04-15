@@ -1,38 +1,38 @@
-"use client";
+/* eslint-disable */
+'use client';
 
-import { useState } from "react";
-import Link from "next/link";
-import { FaBlackTie } from "react-icons/fa";
-import { MdLogin } from "react-icons/md";
-import { useRouter } from "next/router";
-import { usePathname } from "next/navigation";
+import { useState } from 'react';
+import Link from 'next/link';
+import { FaBlackTie } from 'react-icons/fa';
+import { MdLogin } from 'react-icons/md';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activePage, setActivePage] = useState("/"); // Track the active page
+  const [activePage, _setActivePage] = useState('/'); // Track the active page
 
- const pathname = usePathname();
+  const pathname = usePathname();
 
   const isActive = (path: string) => pathname === path;
 
   const linkClass = (path: string) =>
     `px-4 py-2 rounded transition duration-300 ${
       isActive(path)
-        ? "bg-gray-600 text-purple-400"
-        : "hover:bg-gray-600 hover:text-purple-400"
+        ? 'bg-gray-600 text-purple-400'
+        : 'hover:bg-gray-600 hover:text-purple-400'
     }`;
 
-const isDropdownActive = (pathPrefix: string) =>
-  pathname?.startsWith(pathPrefix);
+  // const isDropdownActive = (pathPrefix: string) =>
+  //   pathname?.startsWith(pathPrefix);
 
-const dropdownLinkClass = (path: string) =>
-  `block px-4 py-2 transition duration-300 rounded ${
-    isActive(path)
-      ? "bg-gray-700 text-purple-400"
-      : "hover:bg-gray-700 hover:text-purple-400"
-  }`;
- 
+  const dropdownLinkClass = (path: string) =>
+    `block px-4 py-2 transition duration-300 rounded ${
+      isActive(path)
+        ? 'bg-gray-700 text-purple-400'
+        : 'hover:bg-gray-700 hover:text-purple-400'
+    }`;
+
   return (
     <nav className="bg-gray-800 text-white px-6 py-4 rounded-t-lg shadow-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -44,7 +44,7 @@ const dropdownLinkClass = (path: string) =>
           {/* Using the FontAwesome BlackTie icon */}
           {/* Web Name */}
           <span className="text-2xl font-bold">
-            <Link href="/" onClick={() => setActivePage('/')}>
+            <Link href="/" onClick={() => _setActivePage('/')}>
               Black Tie Events
             </Link>
           </span>

@@ -45,35 +45,30 @@ const TestimonialsCarousel: React.FC = () => {
   };
 
   return (
-    <section
-      className="max-w-xl mx-auto bg-black p-6 rounded shadow-md flex flex-col space-y-4"
-      // background comes from inline style "url('/assets/dj-bg-1.jpg')" if used
-      // If you don't want an image, remove the backgroundImage style.
-      // If you want bg none, you can use bg-transparent as well.
-      style={{ backgroundImage: 'none' }} // or remove this line entirely for just bg-black
-    >
-      <div className="relative z-10 p-4 mx-auto bg-black bg-opacity-50 rounded-lg shadow-lg">
-        <h2 className="text-3xl font-bold mb-6">What Our Clients Say</h2>
-        <div className="mb-6">
-          <TestimonialCard {...testimonials[currentIndex]} />
-        </div>
-        <div className="flex justify-center space-x-4">
-          <button
-            onClick={prevTestimonial}
-            className="bg-gray-700 text-white p-2 rounded-full hover:bg-gray-600 transition"
-          >
-            &#8592;
-          </button>
-          <button
-            onClick={nextTestimonial}
-            className="bg-gray-700 text-white p-2 rounded-full hover:bg-gray-600 transition"
-          >
-            &#8594;
-          </button>
-        </div>
+    <div className="max-w-4xl mx-auto p-4 text-center">
+      <h2 className="text-3xl font-bold text-white mb-6">
+        What Our Clients Say
+      </h2>
+      {/* Testimonial card container */}
+      <div className="mb-6">
+        <TestimonialCard {...testimonials[currentIndex]} />
       </div>
-    </section>
-  );
+      {/* Navigation Buttons */}
+      <div className="flex justify-center space-x-4">
+        <button
+          onClick={prevTestimonial}
+          className="bg-gray-700 text-white p-2 rounded-full hover:bg-gray-600 transition"
+        >
+          &#8592;
+        </button>
+        <button
+          onClick={nextTestimonial}
+          className="bg-gray-700 text-white p-2 rounded-full hover:bg-gray-600 transition"
+        >
+          &#8594;
+        </button>
+      </div>
+    </div>)
 }
 export default TestimonialsCarousel;
 

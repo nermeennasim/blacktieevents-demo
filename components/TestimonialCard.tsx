@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { FaHeart } from 'react-icons/fa';
+import Image from 'next/image';
 
 interface TestimonialCardProps {
   text: string;
@@ -18,13 +19,15 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 }) => {
   return (
     <div className="w-full max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
-      <p className="text-lg italic text-gray-800 mb-4">"{text}"</p>
+      <p className="text-lg italic text-gray-800 mb-4">&quot;{text}&quot;</p>
       <div className="flex items-center">
         {image ? (
-          <img
+          <Image
             src={image}
             alt={name}
-            className="w-12 h-12 rounded-full object-cover mr-4"
+            width={48}
+            height={48}
+            className="rounded-full object-cover mr-4"
           />
         ) : (
           // Fallback icon if no image is provided

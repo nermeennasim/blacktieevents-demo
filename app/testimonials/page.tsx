@@ -3,9 +3,11 @@ import "@/assets/styles/globals.css"; // Example of how to import CSS for this c
 
 import TestimonialsCarousel from "@/components/TestimonialCarousel";
 const Testimonials = () => {
-  return   (<main className="min-h-screen bg-gray-100">
+  return (
+    <main>
       <TestimonialsCarousel />
-    </main>)
+    </main>
+  );
 }
 
 export default Testimonials;
