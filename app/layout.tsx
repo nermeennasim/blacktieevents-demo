@@ -1,14 +1,17 @@
 import React from "react";
-import Navbar from "@/components/Navbar";
 import "@/assets/styles/globals.css";
 import Head from "next/head";
+import CosmosBackground from "@/components/CosmosBackground";
+import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CosmosBackground from '@/components/CosmosBackground';
+import { APP_NAME, APP_DESCRIPTION   } from "@/lib/constants";  
+
+
 
 
 export const metadata = {
-  title: "Black Tie Events", // This is used for the <title> tag in the HTML head
-  description: "Black Tie Events - Excellent DJ Services At Your Event!", // This is used for the meta description tag
+  title:`${APP_NAME}`, // This is used for the <title> tag in the HTML head
+  description: `${APP_DESCRIPTION}`, // This is used for the meta description tag
 
   keyworkds:
     "dj, music, event planning, party, rentals, photobooth,request a song, lighting, speaker, sound system rental, cheap dj services", // Keywords for SEO purposes
@@ -33,14 +36,13 @@ export default function MainLayout({
           content="BlackTie Events - Your Event Planning Partner"
         />
       </Head>
-      <body className="bg-black text-white shadow-lg m-4 rounded-lg">
-        {' '}
-        {/* Outer container for the page */}
-        {/* Outer container for the page */}
+      <body className="flex h-screen flex-col bg-black text-white shadow-lg m-4 rounded-lg">
+       
+       
         <CosmosBackground />
-        <Navbar />
+       <Navbar/>
         {children}
-        <Footer />
+      <Footer/>
       </body>
     </html>
   );
