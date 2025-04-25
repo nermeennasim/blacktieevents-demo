@@ -29,13 +29,7 @@ export default function MainLayout({
   return (
     <html lang="en">
       {/* Set the title of the page */}
-      <Head>
-        <title>BlackTie Events</title> {/* Default title for the site */}
-        <meta
-          name="description"
-          content="BlackTie Events - Your Event Planning Partner"
-        />
-      </Head>
+    
       <body className="flex h-screen flex-col bg-black text-white shadow-lg m-4 rounded-lg">
        
        
